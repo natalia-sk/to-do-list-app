@@ -1,0 +1,14 @@
+#left {
+    float: left;
+    width: 58%;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+#right {
+    float: right;
+    width: 37%;
+    text-align: left;
+    padding: 10px 0 10px 10px;
+    margin: 10px 0 10px 10px;
