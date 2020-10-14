@@ -18,17 +18,21 @@
             <div class="ui segment">
                 <div>
                     {% if todo.complete %}
-                    <span class="ui teal circular label"><i class="check circle outline icon"></i> Done</span>
+                    <a href="/update/{{ todo.id }}">
+                        <span class="ui teal circular label"><i class="check circle outline icon"></i> Done</span>
+                    </a>
                     {% else %}
-                    <span class="ui gray circular label"><i class="circle outline icon"></i>To Do</span>
+                    <a href="/update/{{ todo.id }}">
+                        <span class="ui gray circular label"><i class="circle outline icon"></i>To Do</span>
+                    </a>
                     {% endif %}
                     <span class="ui big header">
-                        {{ todo.task }}
+                        &nbsp&nbsp{{ todo.task }}
                     </span>
                 </div>
                 <br>
                 <div class="ui tiny buttons">
-                    <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
+                    <a class="ui blue button" href="/edit/{{ todo.id }}">Edit Task</a>
                     <div class="or"></div>
                     <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
                 </div>
@@ -37,6 +41,7 @@
         </div>
 
         <div id="right">
+            {% if not edit_todo %}
             <form class="ui form" action="/add" method="post">
                 <div class="field">
                     <h3 class="ui header">
@@ -50,6 +55,22 @@
                     </div>
                 </div>
             </form>
+            {% else %}
+            <form class="ui form" action="/edit/<int:todo_id>" method="post">
+                <div class="field">
+                    <h3 class="ui header">
+                        <label for="task">Edit Task</label><br>
+                        <div class="sub header">
+                            <input type="text" name="task" maxlength="240" value="{{ edit_todo.task }}">
+                        </div>
+                    </h3>
+                    <div>
+                        <button class="ui pink icon button" type="submit"><i class="plus circle icon"></i> Edit</button>
+                    </div>
+                </div>
+            </form>
+            tutaj edycja
+            {% endif%}
         </div>
 
     </div>

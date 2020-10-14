@@ -60,6 +60,24 @@ def update(todo_id):
     return redirect(url_for("index"))
 
 
+@app.route('/edit/<int:todo_id>', methods=['POST', 'GET'])
+def edit(todo_id):
+    """
+    Editing a task
+    :param todo_id: an id of a task
+    :type todo_id: integer
+    """
+    if request.method == 'GET':
+        edit_todo = ToDoList.query.filter_by(id=todo_id).first()
+        return render_template('edit_task.html', edit_todo=edit_todo)
+    if request.method == 'POST':
+        edit_todo = ToDoList.query.filter_by(id=todo_id).first()
+        edit_todo.task = request.form.get('edit_task')
+        db.session.add(edit_todo)
+        db.session.commit()
+    return redirect('/')
+
+
 @app.route('/delete/<int:todo_id>')
 def delete(todo_id):
     """
