@@ -1,0 +1,4 @@
+# PostgreSQL configuration
+# postgresql_config: str = 'postgresql+psycopg2://<user>:<password>@localhost/<database_name>'
+
+postgresql_config: str = 'postgresql+psycopg2://<user>:<password>@localhost/<database_name>'
