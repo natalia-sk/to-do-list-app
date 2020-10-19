@@ -93,5 +93,5 @@ def delete(todo_id):
 
 if __name__ == '__main__':
     # creating tables in your database
-    # db.create_all()
+    db.create_all()
     app.run()
