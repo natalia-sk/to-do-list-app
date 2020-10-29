@@ -1,5 +1,5 @@
 # to-do-list-app
-A simple application for creating your own "to-do lists". It gives you possibility to add, edit, update (to do/done) and delete tasks.
+The application for creating "to-do list". User can add new tasks and edit, update (to do/done) or delete already existing tasks.
 
 ## Technologies
 * Python 3.8.5
